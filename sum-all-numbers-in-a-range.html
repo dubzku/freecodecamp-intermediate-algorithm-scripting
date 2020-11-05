@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sum All Numbers In A Range</title>
+</head>
+<body>
+    <script>
+
+    // We'll pass you an array of two numbers. 
+    // Return the sum of those two numbers plus the sum of all the numbers between them. 
+    // The lowest number will not always come first.
+
+    // For example, sumAll([4,1]) should return 10 because sum of all the numbers between 1 and 4 (both inclusive) is 10.
+
+    // sumAll([1, 4]) should return a number.
+    // sumAll([1, 4]) should return 10.
+    // sumAll([4, 1]) should return 10.
+    // sumAll([5, 10]) should return 45.
+    // sumAll([10, 5]) should return 45.
+
+    function sumAll(arr) {
+        const smallest = Math.min(...arr);
+        const largest = Math.max(...arr);
+        const numberArray = [];
+        
+        for (let i = smallest; i <= largest; i++) {
+            numberArray.push(i);
+        }
+        
+        return numberArray.reduce((a, b) => a + b)
+
+    }
+
+    sumAll([1, 4]);
+
+    </script>
+</body>
+</html>
