@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sorted Union</title>
+</head>
+<body>
+    <script>
+
+        // Write a function that takes two or more arrays and returns a new array of unique values in the order of the original provided arrays.
+        // In other words, all values present from all arrays should be included in their original order, but with no duplicates in the final array.
+        // The unique numbers should be sorted by their original order, but the final array should not be sorted in numerical order.
+
+        // uniteUnique([1, 3, 2], [5, 2, 1, 4], [2, 1]) should return [1, 3, 2, 5, 4].
+        // uniteUnique([1, 2, 3], [5, 2, 1]) should return [1, 2, 3, 5].
+        // uniteUnique([1, 2, 3], [5, 2, 1, 4], [2, 1], [6, 7, 8]) should return [1, 2, 3, 5, 4, 6, 7, 8].
+
+        function uniteUnique(arr) {
+            // spread/flatten the arguments object to get one large array of all the numbers
+            let flattenedArray = [...arguments].flat();
+
+            // use the Set object, and pass in the flattenedArray to get unique numbers only
+            return [...new Set(flattenedArray)]
+        }
+
+        uniteUnique([1, 3, 2], [5, 2, 1, 4], [2, 1]);
+
+    </script>
+</body>
+</html>
