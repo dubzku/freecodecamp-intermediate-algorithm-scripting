@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Missing Letters</title>
+</head>
+<body>
+    <script>
+        // Find the missing letter in the passed letter range and return it.
+        // If all letters are present in the range, return undefined.
+
+        // fearNotLetter("abce") should return "d".
+        // fearNotLetter("abcdefghjklmno") should return "i".
+        // fearNotLetter("stvwx") should return "u".
+        // fearNotLetter("bcdf") should return "e".
+        // fearNotLetter("abcdefghijklmnopqrstuvwxyz") should return undefined.
+
+        function fearNotLetter(str) {
+
+            const alphabetArray = "abcdefghijklmnopqrstuvwxyz".split("");
+            const strArray = str.split("");
+            const startingIndex = alphabetArray.indexOf(strArray[0]);
+
+            for (let i = 0; i < strArray.length; i++) {
+
+                if (alphabetArray[startingIndex + i] === strArray[0 + i]) {
+                    continue
+                } else {
+                    return alphabetArray[startingIndex + i]
+                }
+            }
+        }
+
+        fearNotLetter("abce");
+    </script>
+    
+</body>
+</html>
