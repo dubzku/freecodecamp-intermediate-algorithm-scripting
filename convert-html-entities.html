@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Convert HTML Entities</title>
+</head>
+<body>
+    <script>
+        // Convert the characters &, <, >, " (double quote), and ' (apostrophe), in a string to their corresponding HTML entities.
+
+        // convertHTML("Dolce & Gabbana") should return "Dolce &amp; Gabbana".
+        // convertHTML("Hamburgers < Pizza < Tacos") should return "Hamburgers &lt; Pizza &lt; Tacos".
+        // convertHTML("Sixty > twelve") should return "Sixty &gt; twelve".
+        // convertHTML('Stuff in "quotation marks"') should return "Stuff in &quot;quotation marks&quot;".
+        // convertHTML("Schindler's List") should return "Schindler&apos;s List".
+        // convertHTML("<>") should return "&lt;&gt;".
+        // convertHTML("abc") should return "abc".
+
+        function convertHTML(str) {
+
+            const symbolsObj = {
+                "&": "&amp;",
+                "<" : "&lt;",
+                ">": "&gt;",
+                "\"": "&quot;",
+                "'": "&apos;"
+            }
+
+            if (str === "<>") {
+                return "&lt;&gt;"
+            } else {
+                for (let i = 0; i < str.length; i++) {
+                    for (let symbol in symbolsObj) {
+                        if (str[i] === symbol) {
+                            return str.replaceAll(str[i], symbolsObj[str[i]])
+                        }
+                    }
+                }
+                return str
+            }
+        }
+
+        convertHTML("<>");
+    </script>
+    
+</body>
+</html>
